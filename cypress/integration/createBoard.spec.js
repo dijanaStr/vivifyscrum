@@ -1,4 +1,4 @@
-import CreateBoardPage, { createBoardPOM } from "../page_objects/createBoardPOM"
+import { createBoardPOM } from "../page_objects/createBoardPOM"
 import { loginPage } from "../page_objects/loginPOM";
 
 describe("create Board", () => {
