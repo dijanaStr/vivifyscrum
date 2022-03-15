@@ -14,7 +14,7 @@ describe("createOrganization test", () => {
     })
 
 
-    it('test create new board', () => {
+    it('test create new organization', () => {
         cy.intercept({
             method: 'POST',
             url: 'https://cypress-api.vivifyscrum-stage.com/api/v2/organizations'
@@ -23,7 +23,7 @@ describe("createOrganization test", () => {
         cy.visit('/my-organizations');
         
         createOrganizationPage.createOrganization(organizationData.name);
-        
+       
         cy.wait('@organizationCreation').then((interception) => {
             console.log('ID', interception.response.body.id);
             expect(interception.response.statusCode).eq(201);

@@ -1,15 +1,34 @@
 export default class CreateBoardPage {
-    get importBoard() {
-        return cy.get('a[href="/import-board"]')
+    get addBoard() {
+        return cy.get('li[class="vs-c-my-organization__board vs-c-my-organization__board-new"]')
     }
     get choseOrganizationBtn() {
-        return cy.get('i[xpath="1"]').click()
+        return cy.get('input[class="el-input__inner"]')
     }
-    get importFromBtn() {
-        return cy.get('i[css="2"]').click()
+    get choseOrganizationSelector() {
+        return cy.get('li[class=["el-select-dropdown__item vs-c-select-dropdown__item vs-c-new-board-dropdown selected"]')
     }
-    get importBoard() {
-        return cy.get('div[class="vs-c-site-logo vs-u-cursor--pointer"]').click()
+    get choseSelector() {
+        return cy.get('li[class="el-select-dropdown__item vs-c-select-dropdown__item vs-c-new-board-dropdown selected hover"]')
     }
+    get boardTitle() {
+        return cy.get('input[name="name"]')
+    }
+    get nextBtn() {
+        return cy.get('button[name="next_btn"]')
+    }
+    get boardType() {
+        return cy.get('span[name="type_scrum"]')
+    }
+  
+    createBoard(boardTitle) {
+        this.addBoard
+        this.choseOrganizationBtn
+        this.choseOrganizationSelector.select('vivify')
+        cy.get('input').type(' ')
+        this.boardTitle.type(boardTitle)
+        this.nextBtn.click()
+    }
+    
 }
 export const createBoardPage = new CreateBoardPage();
