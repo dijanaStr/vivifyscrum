@@ -24,7 +24,7 @@ describe("createOrganization test", () => {
         
         createOrganizationPage.createOrganization(organizationData.name);
        
-        cy.wait('@organizationCreation').then((interception) => {
+        cy.wait('@organizationsCreation').then((interception) => {
             console.log('ID', interception.response.body.id);
             expect(interception.response.statusCode).eq(201);
            ownerId = interception.response.body.id;
